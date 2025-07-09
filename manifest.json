@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Air Scraper",
+  "version": "1.0",
+  "description": "Affiche une sidebar avec tous les liens et images de la page.",
+  "permissions": ["scripting", "activeTab", "downloads", "clipboardWrite"],
+  "action": {
+    "default_title": "Activer la Sidebar"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["sidebar-body.html", "sidebar.css", "sidebar.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "128": "./icon/icon128.png"
+  }
+}
